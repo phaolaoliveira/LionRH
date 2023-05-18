@@ -23,6 +23,8 @@ public class Funcionario implements Serializable {
 	private String nome;
 	private String data;
 	private String email;
+	private String salario;
+	private String cargo;
 	
 	@OneToMany(mappedBy = "funcionario", cascade = CascadeType.REMOVE)
 	private List<Dependente>dependentes;
@@ -58,6 +60,23 @@ public class Funcionario implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public String getSalario() {
+		return salario;
+	}
+
+	public void setSalario(String salario) {
+		this.salario = salario;
+	}
+	
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+
 
 	public List<Dependente> getDependentes() {
 		return dependentes;

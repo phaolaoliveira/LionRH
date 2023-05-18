@@ -31,7 +31,7 @@ public class FuncionarioController {
 		return "funcionario/form-funcionario";
 	}
 	
-	// GET que chama o form para cadastrar funcionários
+	// GET que chama o form para gestão de funcionários
 	@RequestMapping("/gestaoFuncionarios")
 	public String dash() {
 		return "funcionario/gestao-funcionarios";
@@ -70,7 +70,6 @@ public class FuncionarioController {
 		// lista de dependentes baseada no id do funcionário
 		Iterable<Dependente> dependentes = dr.findByFuncionario(funcionario);
 		mv.addObject("dependentes", dependentes);
-
 		return mv;
 
 	}

@@ -90,6 +90,7 @@ hr {
 h1, h2, h3, h4, h5, h6 {
 	margin-top: 0;
 	margin-bottom: 0.5rem;
+	line-height: 2.2;
 }
 
 p {
@@ -348,7 +349,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	margin-bottom: 0.5rem;
 	font-family: inherit;
 	font-weight: 500;
-	line-height: 1.2;
+	line-height: 4.2;
 	color: inherit;
 }
 
@@ -557,7 +558,7 @@ pre code {
 
 @media ( min-width : 1200px) {
 	.container {
-		max-width: 1140px;
+		max-width: 1540px;
 	}
 }
 

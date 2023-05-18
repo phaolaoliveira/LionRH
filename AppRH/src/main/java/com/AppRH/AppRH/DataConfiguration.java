@@ -17,8 +17,8 @@ public class DataConfiguration {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/AppRH?useTimezone=true&serverTimezone=UTC");
-		dataSource.setUsername("root"); // usuário do SEU banco de dados
-		dataSource.setPassword("021907"); // senha do SEU banco de dados
+		dataSource.setUsername("root");
+		dataSource.setPassword("021907"); 
 		return dataSource;
 	}
 
@@ -26,7 +26,7 @@ public class DataConfiguration {
 	public JpaVendorAdapter jpaVendorAdapter() {
 		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
 		adapter.setDatabase(Database.MYSQL);
-		adapter.setShowSql(true); // mostra execução do sql
+		adapter.setShowSql(true);
 		adapter.setGenerateDdl(true);
 		adapter.setDatabasePlatform("org.hibernate.dialect.MariaDBDialect");
 		adapter.setPrepareConnection(true);
