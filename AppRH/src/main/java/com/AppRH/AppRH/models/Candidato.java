@@ -26,6 +26,9 @@ public class Candidato {
 	
 	@ManyToOne
 	private Vaga vaga;
+	
+	@ManyToOne
+	private Ferias ferias;
 
 	public String getRg() {
 		return rg;
@@ -57,6 +60,14 @@ public class Candidato {
 
 	public void setVaga(Vaga vaga) {
 		this.vaga = vaga;
+	}
+	
+	public Ferias getFerias() {
+		return ferias;
+	}
+
+	public void setFerias(Ferias ferias) {
+		this.ferias = ferias;
 	}
 	
 }

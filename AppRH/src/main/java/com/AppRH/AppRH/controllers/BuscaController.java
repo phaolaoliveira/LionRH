@@ -16,6 +16,7 @@ import com.AppRH.AppRH.models.Vaga;
 import com.AppRH.AppRH.repository.FuncionarioRepository;
 import com.AppRH.AppRH.repository.VagaRepository;
 import com.AppRH.AppRH.repository.DependenteRepository;
+import com.AppRH.AppRH.repository.FeriasRepository;
 import com.AppRH.AppRH.repository.CandidatoRepository;
 
 @Controller
@@ -32,6 +33,9 @@ public class BuscaController {
 	
 	@Autowired
 	private CandidatoRepository cr;
+	
+	@Autowired
+	private FeriasRepository er;
 	
 	//GET
 	@RequestMapping("/")

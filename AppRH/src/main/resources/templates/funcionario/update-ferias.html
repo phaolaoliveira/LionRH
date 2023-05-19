@@ -111,107 +111,63 @@
 
 	</header>
 
+
 	<div class="container">
-		<p></p>
-		<h1>Detalhes da vaga:</h1>
-		<div class="dropdown-divider"></div>
-		<div th:each="vaga : ${vaga}" class="container">
 
+
+		<th:block th:include="mensagem-validacao"></th:block>
+
+
+		<form method="post">
+			<p></p>
+			<h1>Atualizar Férias</h1>
+			<div class="dropdown-divider"></div>
 			<br>
-
-			<p>
-				<b>Vaga:</b> <span th:text="${vaga.nome}"></span>
-			</p>
-			<p>
-				<b>Descrição do cargo:</b> <span th:text="${vaga.descricao}"></span>
-			</p>
-			<p>
-				<b>Expira em:</b> <span th:text="${vaga.data}"></span>
-			</p>
-			<p>
-				<b>Salário:</b> R$ <span th:text="${vaga.salario}"></span>
-			</p>
-
-			<br> <br>
+			<p></p>
+			<div class="form-group">
+				<label for=""><b>Nome do colaborador:</b> </label> <input type="text"
+					class="form-control" value="" name="nome"
+					th:attr="value = ${ferias.nome}" required /> <small
+					class="form-text text-muted"><i>* Utilize nomes e
+						termos mais utilizados no mercado.</i></small>
+			</div>
 
 
+			<div class="row">
 
-
-
-            <h2>Cadastrar Candidato</h2>
-            <div class="dropdown-divider"></div>
-            <p></p>
-			<th:block th:include="mensagem-validacao"></th:block>
-
-			<br>
-
-			<form method="post" th:object="${candidato}">
-
-				<div class="form-group">
-					<div class="row">
-
-						<div class="col">
-							<label for=""><b>Nome do candidato:</b> </label> <input
-								type="text" value="" name="nomeCandidato" class="form-control"
-								placeholder="Nome Completo" required />
-						</div>
-
-						<div class="col">
-							<label for=""><b>RG: </b> </label><input type="text" value=""
-								name="rg" placeholder="Somente números, sem traços ou pontos."
-								class="validate form-control" required />
-						</div>
-
-						<div class="col">
-							<label for=""><b>E-mail:</b> </label> <input type="text" value=""
-								name="email" class="form-control" placeholder="email@email.com"
-								required />
-						</div>
-
+				<div class="col">
+					<div class="form-group">
+						<label for=""><b>Data de Início:</b></label> <input type="date"
+							class="form-control" value="" name="dataInicio"
+							th:attr="value = ${ferias.dataInicio}" required /><small
+							class="form-text text-muted"><i>* Nova data de entrada.</i></small>
 					</div>
-
-
-
 				</div>
 
-				<button type="submit" class="btn btn-success">Adicionar
-					Candidato</button>
-			</form>
+				<div class="col">
+					<div class="form-group">
+						<label for=""><b>Data de Fim:</b></label> <input type="date"
+							class="form-control" value="" name="dataFim"
+							th:attr="value = ${ferias.dataFim}" required /><small
+							class="form-text text-muted"><i>* Nova data de saída.</i></small>
+					</div>
+				</div>
+
+                <div class="col">
+                    <div class="form-group">
+                        <label for=""><b>Quantidade de Dias:</b> </label> <input type="text"
+                            class="form-control" value="" name="quantidadeDias"
+                            th:attr="value = ${ferias.quantidadeDias}" required /> <small
+                            class="form-text text-muted"><i>* Nova quantidade de dias de recesso.</i></small>
+                    </div>
+                </div>
+
+			</div>
 
 
-		</div>
 
-		<br> <br>
-
-		<h2>Inscritos:</h2>
-
-		<br>
-
-		<table class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th scope="col">Nome do candidato:</th>
-					<th scope="col">RG:</th>
-					<th scope="col">E-mail:</th>
-                    <th scope="col"></th>
-				</tr>
-			</thead>
-			<tbody>
-
-				<tr th:each="candidato : ${candidatos}">
-					<td><span th:text="${candidato.nomeCandidato}"></span></td>
-					<td><span th:text="${candidato.rg}"></span></td>
-					<td><span th:text="${candidato.email}"></span></td>
-					<td><a class="waves-effect waves-light btn-small"
-						th:href="${(#mvc.url('VC#deletarCandidato').arg(0, candidato.rg)).build()}"><button
-								type="button" class="btn btn-danger">Excluir</button></a></td>
-				</tr>
-
-
-			</tbody>
-		</table>
-
-
+			<button type="submit" class="btn btn-success">Salvar</button>
+		</form>
 	</div>
 
 
@@ -284,8 +240,6 @@
 	</div>
 
 
-
-
 	<!--JavaScript bootstrap-->
 	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 	<script
@@ -295,7 +249,7 @@
 		
 	</script>
 
-</body>
 
+</body>
 
 </html>

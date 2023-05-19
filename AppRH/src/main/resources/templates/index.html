@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>| App RH - UC 12 |</title>
+    <title> LION </title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,6 @@
 <body>
 
     <header>
-
 
         <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="/">L I O N </a>
@@ -34,8 +33,6 @@
                 id="bootstrap-css">
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <!------ Include the above in your HEAD tag ---------->
-
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
@@ -57,6 +54,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/funcionarios">Banco de Dados</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/cadastrarFuncionario">Cadastro</a>
                         </div>
                     </li>
@@ -70,10 +68,9 @@
                             Férias
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="/cadastrarFerias">Cadastro de Férias</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="/ferias">Banco de Dados</a>
                         </div>
                     </li>
 
@@ -86,10 +83,24 @@
                             Benefícios
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="/cadastrarVaga">Cadastrar Novo Benefício</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="/vagas">Lista de Beneficios</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-envelope-o">
+                                <span class="badge badge-success">11</span>
+                            </i>
+                            Vagas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/cadastrarVaga">Cadastrar Nova Vaga</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/vagas">Lista de Vagas</a>
                         </div>
                     </li>
                 </ul>
@@ -99,145 +110,162 @@
 
 
 
-	</header>
 
-	<div class="container">
-		<br> <br>
-			
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card h-100">
-      <img src="https://img.freepik.com/vetores-gratis/mulher-de-negocios-multitarefa-desenhada-a-mao-ilustrada_23-2148818039.jpg?w=740&t=st=1684177699~exp=1684178299~hmac=281c70f4374262c5664ca3a41fe469e47960322246141f61ac4e3c8084c3008c" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Gestão de Colaboradores</h5>
-        <p class="card-text">Cadastro e/ou exclusão de funcionários, férias, remuneração e benefícios.</p>
-        <a href="/gestaoFuncionarios" class="btn btn-primary">Acessar</a>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
+    </header>
+
+    <div class="container">
+        <br> <br>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://img.freepik.com/vetores-gratis/mulher-de-negocios-multitarefa-desenhada-a-mao-ilustrada_23-2148818039.jpg?w=740&t=st=1684177699~exp=1684178299~hmac=281c70f4374262c5664ca3a41fe469e47960322246141f61ac4e3c8084c3008c"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestão de Colaboradores</h5>
+                        <p class="card-text">Cadastro e/ou exclusão de funcionários, férias, remuneração e benefícios.
+                        </p>
+                        <a href="/gestaoFuncionarios" class="btn btn-primary">Acessar</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://img.freepik.com/vetores-gratis/conceito-de-ilustracao-de-lei-de-protecao-de-dados_114360-971.jpg?w=740&t=st=1684179238~exp=1684179838~hmac=2ae3d09c101491866d654d3915b83cbd874c8c686ebeb06d1fd8cf261a1707f6"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestão de acessos</h5>
+                        <p class="card-text">Realize o gerenciamento de acessos dos seus colaboradores.</p>
+                        <a href="/cadastrarFuncionario" class="btn btn-primary">Acessar</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://img.freepik.com/vetores-gratis/cv-do-melhor-candidato-na-ilustracao-vetorial-plana-de-maos-do-homem-empresa-em-busca-de-funcionario-headhunter-contratando-pessoas-gestao-de-recursos-humanos-conceito-de-entrevista-de-emprego_74855-24461.jpg?w=740&t=st=1684437981~exp=1684438581~hmac=636b8d308865f1c47ed2e201cf69e8b97865b82701f42eadd72acb37fa1f7f7ehttps://img.freepik.com/vetores-gratis/cv-do-melhor-candidato-na-ilustracao-vetorial-plana-de-maos-do-homem-empresa-em-busca-de-funcionario-headhunter-contratando-pessoas-gestao-de-recursos-humanos-conceito-de-entrevista-de-emprego_74855-24461.jpg?w=740&t=st=1684437981~exp=1684438581~hmac=636b8d308865f1c47ed2e201cf69e8b97865b82701f42eadd72acb37fa1f7f7e"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Vagas</h5>
+                        <p class="card-text">Cadastro de novas vagas e de possíveis candidatos.</p>
+                        <a href="/cadastrarVaga" class="btn btn-primary">Acessar</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- 	nova busca -->
+        <div class="row">
+            <div class="col">
+                <br> <br>
+                <div class="card text-center card w-100">
+                    <div class="card-header">
+                        <h3> Pesquisar no sistema </h3>
+                    </div>
+
+
+
+                    <form class="form-inline" method="post">
+
+
+                        <div class="row form-group justify-content-center w-100 p-2">
+
+
+                            <div class="col col-14 col-md-2">
+
+                                <label for="cars" class="my-3 p-2 w-100">
+                                    <h5>Tipo de busca:</h5>
+                                </label>
+                            </div>
+
+                            <div class="col col-14 col-md-2">
+
+
+                                <select name="nome" id="nome" class="custom-select my-3 p-2 w-100" required>
+                                    <option value="">Escolher...</option>
+                                    <option value="todos">Todos</option>
+                                    <option value="nomefuncionario">Funcionário</option>
+                                    <option value="nomedependente">Dependente</option>
+                                    <option value="nomecandidato">Candidato</option>
+                                    <option value="titulovaga">Vaga</option>
+                                </select>
+
+
+                            </div>
+
+                            <div class="col col-14 col-md-4">
+
+                                <input class="form-control form-control-lg my-3 p-2 w-100" type="search"
+                                    placeholder="Insira sua pesquisa..." aria-label="Pesquisar" name="buscar"
+                                    id="buscar" required>
+
+                            </div>
+
+                            <div class="col col-14 col-md-2">
+
+                                <button class="btn btn-primary my-3 p-2 w-100" type="submit">Pesquisar</button>
+
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <div class="row form-group justify-content-center w-100 p-2">
+                        <h4>
+                            <i><span th:text="${mensagem}"></i>
+                        </h4>
+                        </span>
+                    </div>
+
+                    <div class="row form-group justify-content-center w-100 p-2">
+                        <table class="table table-hover table-responsive w-auto table-striped">
+
+                            <tbody>
+                                <tr th:each="funcionario : ${funcionarios}">
+                                    <td><a
+                                            th:href="${(#mvc.url('FC#detalhesFuncionario').arg(0, funcionario.id)).build()}"><span
+                                                th:text="${funcionario.nome}"></span></a> - em <i>funcionários.</i></td>
+
+
+                                </tr>
+                                <tr th:each="vaga : ${vagas}">
+                                    <td><a th:href="${(#mvc.url('VC#detalhesVaga').arg(0, vaga.codigo)).build()}"><span
+                                                th:text="${vaga.nome}"></span></a> - em <i>vagas.</i></td>
+                                </tr>
+
+
+                                <tr th:each="dependente : ${dependentes}">
+                                    <td><span th:text="${dependente.nome}"></span> - <i>em
+                                            dependentes.</i></td>
+                                </tr>
+
+                                <tr th:each="candidato : ${candidatos}">
+                                    <td><span th:text="${candidato.nomeCandidato}"></span> - <i>em
+                                            candidatos.</i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-   <div class="col">
-    <div class="card h-100">
-      <img src="https://img.freepik.com/vetores-gratis/conceito-de-ilustracao-de-lei-de-protecao-de-dados_114360-971.jpg?w=740&t=st=1684179238~exp=1684179838~hmac=2ae3d09c101491866d654d3915b83cbd874c8c686ebeb06d1fd8cf261a1707f6" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Gestão de acessos</h5>
-        <p class="card-text">Realize o gerenciamento de acessos dos seus colaboradores.</p>
-        <a href="/cadastrarFuncionario" class="btn btn-primary">Acessar</a>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  
-</div>
 
 
-
-		<!-- 	nova busca -->
-		<div class="row">
-			<div class="col">
-				<br> <br>
-				<div class="card text-center card w-100">
-					<div class="card-header">
-						<h3> Pesquisar no sistema </h3>
-					</div>
-
-
-
-					<form class="form-inline" method="post">
-
-
-						<div class="row form-group justify-content-center w-100 p-2">
-
-
-							<div class="col col-14 col-md-2">
-
-								<label for="cars" class="my-3 p-2 w-100">
-									<h5>Tipo de busca:</h5>
-								</label>
-							</div>
-
-							<div class="col col-14 col-md-2">
-
-
-								<select name="nome" id="nome"
-									class="custom-select my-3 p-2 w-100" required>
-									<option value="">Escolher...</option>
-									<option value="todos">Todos</option>
-									<option value="nomefuncionario">Funcionário</option>
-									<option value="nomedependente">Dependente</option>
-									<option value="nomecandidato">Candidato</option>
-									<option value="titulovaga">Vaga</option>
-								</select>
-
-
-							</div>
-
-							<div class="col col-14 col-md-4">
-
-								<input class="form-control form-control-lg my-3 p-2 w-100"
-									type="search" placeholder="Insira sua pesquisa..."
-									aria-label="Pesquisar" name="buscar" id="buscar" required>
-
-							</div>
-
-							<div class="col col-14 col-md-2">
-
-								<button class="btn btn-primary my-3 p-2 w-100" type="submit">Pesquisar</button>
-
-							</div>
-						</div>
-
-					</form>
-
-					<div class="row form-group justify-content-center w-100 p-2">
-						<h4>
-							<i><span th:text="${mensagem}"></i>
-						</h4>
-						</span>
-					</div>
-
-					<div class="row form-group justify-content-center w-100 p-2">
-						<table
-							class="table table-hover table-responsive w-auto table-striped">
-
-							<tbody>
-								<tr th:each="funcionario : ${funcionarios}">
-									<td><a
-										th:href="${(#mvc.url('FC#detalhesFuncionario').arg(0, funcionario.id)).build()}"><span
-											th:text="${funcionario.nome}"></span></a> - em <i>funcionários.</i></td>
-
-
-								</tr>
-								<tr th:each="vaga : ${vagas}">
-									<td><a
-										th:href="${(#mvc.url('VC#detalhesVaga').arg(0, vaga.codigo)).build()}"><span
-											th:text="${vaga.nome}"></span></a> - em <i>vagas.</i></td>
-								</tr>
-
-
-								<tr th:each="dependente : ${dependentes}">
-									<td><span th:text="${dependente.nome}"></span> - <i>em
-											dependentes.</i></td>
-								</tr>
-
-								<tr th:each="candidato : ${candidatos}">
-									<td><span th:text="${candidato.nomeCandidato}"></span> - <i>em
-											candidatos.</i></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-	<div style="height: 100px;"></div>
+    <div style="height: 100px;"></div>
 
 
     <footer class="bg-dark text-center text-white">
@@ -304,14 +332,12 @@
         <!-- Copyright -->
     </footer>
 
-	<!--JavaScript bootstrap-->
-	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous">
-		
-	</script>
+    <!--JavaScript bootstrap-->
+    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+
+        </script>
 </body>
 
 </html>

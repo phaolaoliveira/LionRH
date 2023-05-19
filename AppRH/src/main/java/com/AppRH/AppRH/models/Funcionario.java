@@ -28,7 +28,7 @@ public class Funcionario implements Serializable {
 	
 	@OneToMany(mappedBy = "funcionario", cascade = CascadeType.REMOVE)
 	private List<Dependente>dependentes;
-
+	
 	public long getId() {
 		return id;
 	}
@@ -85,5 +85,5 @@ public class Funcionario implements Serializable {
 	public void setDependentes(List<Dependente> dependentes) {
 		this.dependentes = dependentes;
 	}
-	
+
 }

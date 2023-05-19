@@ -12,8 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.AppRH.AppRH.models.Dependente;
+import com.AppRH.AppRH.models.Ferias;
 import com.AppRH.AppRH.models.Funcionario;
 import com.AppRH.AppRH.repository.DependenteRepository;
+import com.AppRH.AppRH.repository.FeriasRepository;
 import com.AppRH.AppRH.repository.FuncionarioRepository;
 
 @Controller
@@ -24,6 +26,9 @@ public class FuncionarioController {
 
 	@Autowired
 	private DependenteRepository dr;
+	
+	@Autowired
+	private FeriasRepository er;
 
 	// GET que chama o form para cadastrar funcionários
 	@RequestMapping("/cadastrarFuncionario")
@@ -70,6 +75,11 @@ public class FuncionarioController {
 		// lista de dependentes baseada no id do funcionário
 		Iterable<Dependente> dependentes = dr.findByFuncionario(funcionario);
 		mv.addObject("dependentes", dependentes);
+		
+//		// lista de ferias baseada no id do funcionário
+//		Iterable<Ferias> ferias = er.findByFuncionario(funcionario);
+//		mv.addObject("ferias", ferias);
+		
 		return mv;
 
 	}
@@ -141,4 +151,41 @@ public class FuncionarioController {
 		return "redirect:/detalhes-funcionario/" + codigo;
 	
 	}
+	
+	
+//	// POST que adiciona ferias
+//	@RequestMapping(value="/detalhes-funcionario/{id}", method = RequestMethod.POST)
+//	public String detalhesFeriasPost(@PathVariable("id") long id, Ferias ferias, BindingResult result,
+//			RedirectAttributes attributes) {
+//		
+//		if(result.hasErrors()) {
+//			attributes.addFlashAttribute("mensagem", "Verifique os campos!");
+//			return "redirect:/detalhes-funcionario/{id}";
+//		}
+//		
+//		if(dr.findByCpf(ferias.getCpf()) != null) {
+//			attributes.addFlashAttribute("mensagem_erro", "CPF duplicado");
+//			return "redirect:/detalhes-funcionario/{id}";
+//		}
+//		
+//		Funcionario funcionario = fr.findById(id);
+//		ferias.setFuncionario(funcionario);
+//		er.save(ferias);
+//		attributes.addFlashAttribute("mensagem", "Dependente adicionado com sucesso");
+//		return "redirect:/detalhes-funcionario/{id}";
+//		
+//	}
+	
+//	// GET que deleta ferias
+//	@RequestMapping("/deletarFerias")
+//	public String deletarFerias(String cpf) {
+//		Ferias ferias = er.findByCpf(cpf);
+//		
+//		Funcionario funcionario = ferias.getFuncionario();
+//		String codigo = "" + funcionario.getId();
+//		
+//		er.delete(ferias);
+//		return "redirect:/detalhes-funcionario/" + codigo;
+//	
+//	}
 }

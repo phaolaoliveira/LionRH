@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>| App RH - UC 12 |</title>
+    <title> LION </title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,6 @@
 <body>
 
     <header>
-
 
         <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="/">L I O N </a>
@@ -34,8 +33,6 @@
                 id="bootstrap-css">
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <!------ Include the above in your HEAD tag ---------->
-
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
@@ -57,6 +54,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/funcionarios">Banco de Dados</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/cadastrarFuncionario">Cadastro</a>
                         </div>
                     </li>
@@ -70,10 +68,9 @@
                             Férias
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="/cadastrarFerias">Cadastro de Férias</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="/ferias">Banco de Dados</a>
                         </div>
                     </li>
 
@@ -86,16 +83,31 @@
                             Benefícios
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="/cadastrarVaga">Cadastrar Novo Benefício</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="/vagas">Lista de Beneficios</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-envelope-o">
+                                <span class="badge badge-success">11</span>
+                            </i>
+                            Vagas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/cadastrarVaga">Cadastrar Nova Vaga</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/vagas">Lista de Vagas</a>
                         </div>
                     </li>
                 </ul>
 
             </div>
         </nav>
+
 
 
 
@@ -143,7 +155,7 @@
                         <h5 class="card-title">Férias</h5>
                         <p class="card-text">Aprove ou visualize a data programada de recesso para cada colaborador de
                             sua empresa.</p>
-                        <a href="/cadastrarFuncionario" class="btn btn-primary">Acessar</a>
+                        <a href="/cadastrarFerias" class="btn btn-primary">Acessar</a>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>

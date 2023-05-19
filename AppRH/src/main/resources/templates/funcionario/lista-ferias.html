@@ -109,115 +109,52 @@
         </nav>
 
 
-	</header>
-
-	<div class="container">
-		<p></p>
-		<h1>Detalhes da vaga:</h1>
-		<div class="dropdown-divider"></div>
-		<div th:each="vaga : ${vaga}" class="container">
-
-			<br>
-
-			<p>
-				<b>Vaga:</b> <span th:text="${vaga.nome}"></span>
-			</p>
-			<p>
-				<b>Descrição do cargo:</b> <span th:text="${vaga.descricao}"></span>
-			</p>
-			<p>
-				<b>Expira em:</b> <span th:text="${vaga.data}"></span>
-			</p>
-			<p>
-				<b>Salário:</b> R$ <span th:text="${vaga.salario}"></span>
-			</p>
-
-			<br> <br>
+    </header>
 
 
+    <div class="container">
 
+        <p></p>
+        <h1>Lista de Férias Cadastradas</h1>
 
+        <br>
 
-            <h2>Cadastrar Candidato</h2>
-            <div class="dropdown-divider"></div>
-            <p></p>
-			<th:block th:include="mensagem-validacao"></th:block>
-
-			<br>
-
-			<form method="post" th:object="${candidato}">
-
-				<div class="form-group">
-					<div class="row">
-
-						<div class="col">
-							<label for=""><b>Nome do candidato:</b> </label> <input
-								type="text" value="" name="nomeCandidato" class="form-control"
-								placeholder="Nome Completo" required />
-						</div>
-
-						<div class="col">
-							<label for=""><b>RG: </b> </label><input type="text" value=""
-								name="rg" placeholder="Somente números, sem traços ou pontos."
-								class="validate form-control" required />
-						</div>
-
-						<div class="col">
-							<label for=""><b>E-mail:</b> </label> <input type="text" value=""
-								name="email" class="form-control" placeholder="email@email.com"
-								required />
-						</div>
-
-					</div>
-
-
-
-				</div>
-
-				<button type="submit" class="btn btn-success">Adicionar
-					Candidato</button>
-			</form>
-
-
-		</div>
-
-		<br> <br>
-
-		<h2>Inscritos:</h2>
-
-		<br>
-
-		<table class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th scope="col">Nome do candidato:</th>
-					<th scope="col">RG:</th>
-					<th scope="col">E-mail:</th>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Nome do Colaborador:</th>
+                    <th scope="col">Data Início:</th>
+                    <th scope="col">Data Fim:</th>
+                    <th scope="col">Quantidade de Dias:</th>
                     <th scope="col"></th>
-				</tr>
-			</thead>
-			<tbody>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="ferias : ${ferias}">
 
-				<tr th:each="candidato : ${candidatos}">
-					<td><span th:text="${candidato.nomeCandidato}"></span></td>
-					<td><span th:text="${candidato.rg}"></span></td>
-					<td><span th:text="${candidato.email}"></span></td>
-					<td><a class="waves-effect waves-light btn-small"
-						th:href="${(#mvc.url('VC#deletarCandidato').arg(0, candidato.rg)).build()}"><button
-								type="button" class="btn btn-danger">Excluir</button></a></td>
-				</tr>
+                    <td><a th:href="${(#mvc.url('FC#detalhesFerias').arg(0, ferias.codigo)).build()}"><span
+                                th:text="${ferias.nome}"></span></a></td>
+                    <td><span th:text="${ferias.dataInicio}"></span></td>
+                    <td><span th:text="${ferias.dataFim}"></span></td>
+                    <td><span th:text="${ferias.quantidadeDias}"></span></td>
+                    <td><a th:href="${(#mvc.url('FC#deletarFerias').arg(0, ferias.codigo)).build()}"
+                            class="waves-effect waves-light btn-small"><button type="button"
+                                class="btn btn-danger">Excluir</button></a></td>
+                    <td><a th:href="${(#mvc.url('FC#editarFerias').arg(0, ferias.codigo)).build()}"><button
+                                type="button" class="btn btn-primary">Editar</button></a></td>
+
+                    <td><a th:href="${(#mvc.url('FC#detalhesFerias').arg(0, ferias.codigo)).build()}"></a></td>
+
+                </tr>
+            </tbody>
+        </table>
 
 
-			</tbody>
-		</table>
+        <div style="height: 100px;"></div>
 
-
-	</div>
-
-
-	<div style="height: 100px;"></div>
-
-	<div class="footer-copyright bg-dark text-center py-3">
+        <div class="footer-copyright fixed-bottom bg-dark text-center py-3">
             <footer class="bg-dark text-center text-white">
                 <!-- Grid container -->
                 <div class="container p-4 pb-0">
@@ -281,21 +218,15 @@
                 </div>
                 <!-- Copyright -->
             </footer>
-	</div>
+        </div>
 
 
+        <!--JavaScript bootstrap-->
+        <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
 
-
-	<!--JavaScript bootstrap-->
-	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous">
-		
-	</script>
-
+            </script>
 </body>
-
 
 </html>

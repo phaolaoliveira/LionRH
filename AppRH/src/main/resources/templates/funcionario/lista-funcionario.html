@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>| App RH - UC 12 |</title>
+    <title> LION </title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,6 @@
 <body>
 
     <header>
-
 
         <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="/">L I O N </a>
@@ -34,8 +33,6 @@
                 id="bootstrap-css">
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <!------ Include the above in your HEAD tag ---------->
-
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
@@ -57,6 +54,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/funcionarios">Banco de Dados</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/cadastrarFuncionario">Cadastro</a>
                         </div>
                     </li>
@@ -70,10 +68,9 @@
                             Férias
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="/cadastrarFerias">Cadastro de Férias</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="/ferias">Banco de Dados</a>
                         </div>
                     </li>
 
@@ -86,10 +83,24 @@
                             Benefícios
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="/cadastrarVaga">Cadastrar Novo Benefício</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="/vagas">Lista de Beneficios</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-envelope-o">
+                                <span class="badge badge-success">11</span>
+                            </i>
+                            Vagas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/cadastrarVaga">Cadastrar Nova Vaga</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/vagas">Lista de Vagas</a>
                         </div>
                     </li>
                 </ul>
@@ -97,54 +108,55 @@
             </div>
         </nav>
 
-	</header>
+
+    </header>
 
 
-	<div class="container">
+    <div class="container">
+        <p></p>
+        <h1>Lista interna de funcionários</h1>
 
-		<h1>Lista interna de funcionários</h1>
+        <br>
 
-		<br>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Nome:</th>
+                    <th scope="col">Data de nascimento:</th>
+                    <th scope="col">E-mail:</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="funcionario : ${funcionarios}">
 
-		<table class="table table-hover table-responsive w-auto table-striped">
-			<thead>
-				<tr>
-					<th scope="col">Nome:</th>
-					<th scope="col">Data de nascimento:</th>
-					<th scope="col">E-mail:</th>
-					<th scope="col"></th>
-					<th scope="col">Ação</th>
-					<th scope="col"></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="funcionario : ${funcionarios}">
+                    <td><a th:href="${(#mvc.url('FC#detalhesFuncionario').arg(0, funcionario.id)).build()}"><span
+                                th:text="${funcionario.nome}"></span></a></td>
+                    <td><span th:text="${funcionario.data}"></span></td>
+                    <td><span th:text="${funcionario.email}"></span></td>
+                    <td><a th:href="${(#mvc.url('FC#deletarFuncionario').arg(0, funcionario.id)).build()}"
+                            class="waves-effect waves-light btn-small"><button type="button"
+                                class="btn btn-danger">Excluir</button></a></td>
+                    <td><a th:href="${(#mvc.url('FC#editarFuncionario').arg(0, funcionario.id)).build()}"><button
+                                type="button" class="btn btn-primary">Editar</button></a></td>
 
-					<td><a
-						th:href="${(#mvc.url('FC#detalhesFuncionario').arg(0, funcionario.id)).build()}"><span
-							th:text="${funcionario.nome}"></span></a></td>
-					<td><span th:text="${funcionario.data}"></span></td>
-					<td><span th:text="${funcionario.email}"></span></td>
-					<td><a
-						th:href="${(#mvc.url('FC#deletarFuncionario').arg(0, funcionario.id)).build()}"
-						class="waves-effect waves-light btn-small"><button
-								type="button" class="btn btn-danger">Excluir</button></a></td>
-					<td><a
-						th:href="${(#mvc.url('FC#editarFuncionario').arg(0, funcionario.id)).build()}"><button
-								type="button" class="btn btn-primary">Editar</button></a></td>
+                    <td><a th:href="${(#mvc.url('FC#detalhesFuncionario').arg(0, funcionario.id)).build()}"><button
+                                type="button" class="btn btn-success">Adicionar
+                                dependente</button></a></td>
 
-					<td><a
-						th:href="${(#mvc.url('FC#detalhesFuncionario').arg(0, funcionario.id)).build()}"><button
-								type="button" class="btn btn-success">Adicionar
-								dependente</button></a></td>
-
-				</tr>
-			</tbody>
-		</table>
+                </tr>
+            </tbody>
+        </table>
 
 
-		<div style="height: 100px;"></div>
+    </div>
+    </div>
 
+
+    <div style="height: 100px;"></div>
+    <div class="footer-copyright fixed-bottom bg-dark text-center py-3">
     <footer class="bg-dark text-center text-white">
         <!-- Grid container -->
         <div class="container p-4 pb-0">
@@ -208,16 +220,15 @@
         </div>
         <!-- Copyright -->
     </footer>
+</div>
 
 
-		<!--JavaScript bootstrap-->
-		<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-			crossorigin="anonymous">
-			
-		</script>
+    <!--JavaScript bootstrap-->
+    <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+
+        </script>
 </body>
 
 </html>
