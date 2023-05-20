@@ -151,81 +151,38 @@
 
 
             <br> <br>
-            <!-- <div class="row">
-                <div class="col">
-                    <table class="table table-hover table-responsive w-auto table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nome:</th>
-                                <th scope="col">Data de Nascimento:</th>
-                                <th scope="col">E-mail:</th>
-                                <th scope="col">Salário:</th>
-                                <th scope="col">Cargo:</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="funcionario : ${funcionarios}">
-                                <td><span th:text="${funcionario.nome}"></span></td>
-                                <td><span th:text="${funcionario.data}"></span></td>
-                                <td><span th:text="${funcionario.email}"></span></td>
-                                <td><span th:text="${funcionario.salario}"></span></td>
-                                <td><span th:text="${funcionario.cargo}"></span></td>
-                                <td><a class="waves-effect waves-light btn-small"></td>
-                    </table>
-                </div>
-            </div> -->
-
-
-
-
-
 
         </div>
 
-
-        <br> <br>
-
-
         <p></p>
-        <h2>Cadastrar dependentes</h2>
+        <h2>Cadastrar Acessos</h2>
         <div class="dropdown-divider"></div>
         <p></p>
-        <form method="post" th:object="${dependente}">
+        <form method="post" th:object="${acesso}">
 
             <div class="form-group">
                 <div class="row">
 
                     <div class="col">
-                        <label for=""><b>Nome:</b> </label> <input type="text" value="" name="nome" class="form-control"
-                            placeholder="Nome Completo" required />
-                    </div>
-
-
-                    <div class="col">
-                        <label for=""><b>CPF: </b> </label><input type="text" value="" name="cpf"
-                            placeholder="Somente números, sem traços ou pontos." class="validate form-control"
+                        <label for=""><b>CPF:</b> </label> <input type="text" value="" name="cpf" class="form-control"
                             required />
-                    </div>
-
-
-                    <br> <br>
-                    <div class="col">
-
-                        <div class="form-group">
-                            <label for=""><b>Data de nascimento:</b></label> <input type="date" value=""
-                                name="datanascimento" class="form-control" required /> <small
-                                class="form-text text-muted"><i>*
-                                    Dia/Mês/Ano.</i></small>
-                        </div>
                     </div>
 
                 </div>
 
+                <div class="row">
 
+                    <div class="col">
+                    <p></p>
+                        <label for=""><b>Acesso:</b> </label> <input type="text" value="" name="nome" class="form-control"
+                            required />
+                    </div>
 
+                </div>
 
+                <p></p>
                 <button type="submit" class="btn btn-success">Adicionar
-                    Dependente</button>
+                    Acesso</button>
         </form>
 
 
@@ -236,7 +193,7 @@
 
     <br> <br>
 
-    <h2>Dependentes:</h2>
+    <h2>Acessos:</h2>
 
     <br>
 
@@ -244,20 +201,16 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nome do dependente:</th>
-                <th scope="col">CPF:</th>
-                <th scope="col">Data de nascimento:</th>
+                <th scope="col">Acesso:</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="dependente : ${dependentes}">
+            <tr th:each="acessos : ${acessos}">
                 <th scope="row">*</th>
-                <td><span th:text="${dependente.nome}"></span></td>
-                <td><span th:text="${dependente.cpf}"></span></td>
-                <td><span th:text="${dependente.datanascimento}"></span></td>
+                <td><span th:text="${acessos.nome}"></span></td>
                 <td><a class="waves-effect waves-light btn-small"
-                        th:href="${(#mvc.url('FC#deletarDependente').arg(0, dependente.cpf)).build()}"><button
+                        th:href="${(#mvc.url('FC#deletarAcessos').arg(0, acessos.cpf)).build()}"><button
                             type="button" class="btn btn-danger">Excluir</button></a></td>
             </tr>
 

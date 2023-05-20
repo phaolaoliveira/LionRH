@@ -5,12 +5,13 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.AppRH.AppRH.models.Candidato;
+import com.AppRH.AppRH.models.Beneficios;
 import com.AppRH.AppRH.models.Ferias;
 import com.AppRH.AppRH.models.Funcionario;
-import com.AppRH.AppRH.models.Vaga;
 
 public interface FuncionarioRepository extends CrudRepository<Funcionario, Long>{
+
+	Iterable<Funcionario> findByFerias(Ferias ferias);
 	
 	Funcionario findById(long id);
 	Funcionario findByNome(String nome);

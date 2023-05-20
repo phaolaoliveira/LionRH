@@ -1,6 +1,7 @@
 package com.AppRH.AppRH.controllers;
 
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -94,7 +95,7 @@ public class VagaController {
 		Vaga vaga = vr.findByCodigo(codigo);
 		candidato.setVaga(vaga);
 		cr.save(candidato);
-		attributes.addFlashAttribute("mensagem", "Candidato adionado com sucesso!");
+		attributes.addFlashAttribute("mensagem", "Candidato adicionado com sucesso!");
 		return "redirect:/vaga/{codigo}";
 	}
 
@@ -126,10 +127,8 @@ public class VagaController {
 	public String updateVaga(@Valid Vaga vaga, BindingResult result, RedirectAttributes attributes) {
 		vr.save(vaga);
 		attributes.addFlashAttribute("success", "Vaga alterada com sucesso!");
-
-		long codigoLong = vaga.getCodigo();
-		String codigo = "" + codigoLong;
-		return "redirect:/vaga/" + codigo;
+		
+		return "redirect:/vagas";
 	}
 
 }

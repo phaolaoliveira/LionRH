@@ -69,5 +69,5 @@ public class Candidato {
 	public void setFerias(Ferias ferias) {
 		this.ferias = ferias;
 	}
-	
+
 }

@@ -124,178 +124,50 @@
 
 
 
-
-
     </header>
 
+
     <div class="container">
-        <br> <br>
+        <p></p>
+        <h1>Lista interna de funcionários</h1>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card h-100" style="width: 15rem;">
-                    <img src="https://img.freepik.com/vetores-gratis/ilustracao-da-equipe-feminina_23-2150201045.jpg"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Banco de Funcionários</h5>
-                        <p class="card-text">Visualize e/ou edite os dados funcionários, exclua funcionários inativos.
-                        </p>
-                        <a href="/funcionarios" class="btn btn-primary">Acessar</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
+        <br>
 
-            <div class="col">
-                <div class="card h-100" style="width: 15rem;">
-                    <img src="https://img.freepik.com/vetores-gratis/ilustracao-da-equipe-feminina_23-2150201048.jpg?w=740&t=st=1684366457~exp=1684367057~hmac=ad6597c469ae66b472de640ecc5d91bd2a11dc0c33d6a93de4563427b5fdaa24"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Cadastro de Funcionários</h5>
-                        <p class="card-text">Cadastre um novo colaborador em seu banco de dados.</p>
-                        <a href="/cadastrarFuncionario" class="btn btn-primary">Acessar</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100" style="width: 15rem;">
-                    <img src="https://img.freepik.com/vetores-gratis/garcom-usando-mascara-facial-e-servindo-design_23-2148604714.jpg?t=st=1684191487~exp=1684192087~hmac=757e90f585222cbf09a7879483dfe2f3fd22e1f1bb9aae4c815ceef0b9afcac1"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Férias</h5>
-                        <p class="card-text">Aprove ou visualize a data programada de recesso para cada colaborador de
-                            sua empresa.</p>
-                        <a href="/cadastrarFerias" class="btn btn-primary">Acessar</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100" style="width: 15rem;">
-                    <img src="https://img.freepik.com/vetores-gratis/ilustracao-de-frugalidade-desenhada-a-mao_23-2150201057.jpg?w=740&t=st=1684191419~exp=1684192019~hmac=8df539144e54493f4ee9afe3fe7bfcf02fa9650f80ea234723bfec1af1f7417a"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Benefícios</h5>
-                        <p class="card-text">Cadastre e/ou visualize os benefícios para cada colaborador de sua empresa.</p>
-                        <a href="/beneficios" class="btn btn-primary">Acessar</a>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Nome:</th>
+                    <th scope="col">Data de nascimento:</th>
+                    <th scope="col">E-mail:</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="funcionario : ${funcionarios}">
+
+                    <td><a th:href="${(#mvc.url('FC#detalhesFuncionario').arg(0, funcionario.id)).build()}"><span
+                                th:text="${funcionario.nome}"></span></a></td>
+                    <td><span th:text="${funcionario.data}"></span></td>
+                    <td><span th:text="${funcionario.email}"></span></td>
+                    <td><a th:href="${(#mvc.url('FC#deletarFuncionario').arg(0, funcionario.id)).build()}"
+                            class="waves-effect waves-light btn-small"><button type="button"
+                                class="btn btn-danger">Excluir</button></a></td>
+                    <td><a th:href="${(#mvc.url('FC#detalhesBeneficios').arg(0, funcionario.id)).build()}"><button
+                                type="button" class="btn btn-primary">Editar</button></a></td>
+
+                </tr>
+            </tbody>
+        </table>
 
 
-
-        <!-- 	nova busca -->
-        <div class="row">
-            <div class="col">
-                <br> <br>
-                <div class="card text-center card w-100">
-                    <div class="card-header">
-                        <h3> Pesquisar no sistema </h3>
-                    </div>
-
-
-
-                    <form class="form-inline" method="post">
-
-
-                        <div class="row form-group justify-content-center w-100 p-2">
-
-
-                            <div class="col col-14 col-md-2">
-
-                                <label for="cars" class="my-3 p-2 w-100">
-                                    <h5>Tipo de busca:</h5>
-                                </label>
-                            </div>
-
-                            <div class="col col-14 col-md-2">
-
-
-                                <select name="nome" id="nome" class="custom-select my-3 p-2 w-100" required>
-                                    <option value="">Escolher...</option>
-                                    <option value="todos">Todos</option>
-                                    <option value="nomefuncionario">Funcionário</option>
-                                    <option value="nomedependente">Dependente</option>
-                                    <option value="nomecandidato">Candidato</option>
-                                    <option value="titulovaga">Vaga</option>
-                                </select>
-
-
-                            </div>
-
-                            <div class="col col-14 col-md-4">
-
-                                <input class="form-control form-control-lg my-3 p-2 w-100" type="search"
-                                    placeholder="Insira sua pesquisa..." aria-label="Pesquisar" name="buscar"
-                                    id="buscar" required>
-
-                            </div>
-
-                            <div class="col col-14 col-md-2">
-
-                                <button class="btn btn-primary my-3 p-2 w-100" type="submit">Pesquisar</button>
-
-                            </div>
-                        </div>
-
-                    </form>
-
-                    <div class="row form-group justify-content-center w-100 p-2">
-                        <h4>
-                            <i><span th:text="${mensagem}"></i>
-                        </h4>
-                        </span>
-                    </div>
-
-                    <div class="row form-group justify-content-center w-100 p-2">
-                        <table class="table table-hover table-responsive w-auto table-striped">
-
-                            <tbody>
-                                <tr th:each="funcionario : ${funcionarios}">
-                                    <td><a
-                                            th:href="${(#mvc.url('FC#detalhesFuncionario').arg(0, funcionario.id)).build()}"><span
-                                                th:text="${funcionario.nome}"></span></a> - em <i>funcionários.</i></td>
-
-
-                                </tr>
-                                <tr th:each="vaga : ${vagas}">
-                                    <td><a th:href="${(#mvc.url('VC#detalhesVaga').arg(0, vaga.codigo)).build()}"><span
-                                                th:text="${vaga.nome}"></span></a> - em <i>vagas.</i></td>
-                                </tr>
-
-
-                                <tr th:each="dependente : ${dependentes}">
-                                    <td><span th:text="${dependente.nome}"></span> - <i>em
-                                            dependentes.</i></td>
-                                </tr>
-
-                                <tr th:each="candidato : ${candidatos}">
-                                    <td><span th:text="${candidato.nomeCandidato}"></span> - <i>em
-                                            candidatos.</i></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
     </div>
 
 
     <div style="height: 100px;"></div>
-
-
+    <div class="footer-copyright fixed-bottom bg-dark text-center py-3">
     <footer class="bg-dark text-center text-white">
         <!-- Grid container -->
         <div class="container p-4 pb-0">
@@ -359,6 +231,8 @@
         </div>
         <!-- Copyright -->
     </footer>
+</div>
+
 
     <!--JavaScript bootstrap-->
     <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>

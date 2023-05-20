@@ -4,14 +4,13 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+
 import com.AppRH.AppRH.models.Candidato;
-import com.AppRH.AppRH.models.Ferias;
 import com.AppRH.AppRH.models.Vaga;
 
 public interface CandidatoRepository extends CrudRepository<Candidato, Long> {
 
-	Iterable<Candidato> findByVaga(Vaga vaga);
-	Iterable<Candidato> findByFerias(Ferias ferias);
+	Iterable<Candidato> findByVaga(Vaga vaga);	
 
 	// para deletar pelo RG
 	Candidato findByRg(String rg);

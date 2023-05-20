@@ -33,7 +33,7 @@ public class Ferias implements Serializable {
 	private String quantidadeDias;
 	
 	@OneToMany(mappedBy = "ferias", cascade = CascadeType.REMOVE)
-	private List<Candidato> candidatos;
+	private List<Funcionario> funcionarios;
 
 	public long getCodigo() {
 		return codigo;
@@ -75,11 +75,11 @@ public class Ferias implements Serializable {
 		this.quantidadeDias = quantidadeDias;
 	}
 	
-	public List<Candidato> getCandidatos() {
-		return candidatos;
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
 	}
 
-	public void setCandidatos(List<Candidato> candidatos) {
-		this.candidatos = candidatos;
+	public void setCandidatos(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
 	}
 }

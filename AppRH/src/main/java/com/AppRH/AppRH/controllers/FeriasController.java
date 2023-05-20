@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.AppRH.AppRH.models.Candidato;
 import com.AppRH.AppRH.models.Ferias;
-import com.AppRH.AppRH.models.Vaga;
-import com.AppRH.AppRH.repository.CandidatoRepository;
+import com.AppRH.AppRH.models.Funcionario;
 import com.AppRH.AppRH.repository.FeriasRepository;
+import com.AppRH.AppRH.repository.FuncionarioRepository;
 
 @Controller
 public class FeriasController {
@@ -24,15 +23,15 @@ public class FeriasController {
 	private FeriasRepository vr;
 	
 	@Autowired
-	private CandidatoRepository cr;
+	private FuncionarioRepository cr;
 
-	// GET que chama o FORM que cadastra vaga
+	// GET que chama o FORM que cadastra ferias
 	@RequestMapping("/cadastrarFerias")
 	public String form() {
 		return "funcionario/form-ferias";
 	}
 
-	// POST que cadastra a vaga
+	// POST que cadastra as ferias
 	@RequestMapping(value = "/cadastrarFerias", method = RequestMethod.POST)
 	public String form(@Valid Ferias ferias, BindingResult result, RedirectAttributes attributes) {
 
@@ -46,7 +45,7 @@ public class FeriasController {
 		return "redirect:/cadastrarFerias";
 	}
 
-	// GET que lista as vagas
+	// GET que lista as ferias
 	@RequestMapping("/ferias")
 	public ModelAndView listaFerias() {
 		ModelAndView mv = new ModelAndView("funcionario/lista-ferias");
@@ -55,21 +54,21 @@ public class FeriasController {
 		return mv;
 	}
 
-	// GET que mostra os detalhes da vaga e os candidatos
+	// GET que mostra os detalhes das ferias
 	@RequestMapping("/ferias/{codigo}")
 	public ModelAndView detalhesFerias(@PathVariable("codigo") long codigo) {
 		Ferias ferias = vr.findByCodigo(codigo);
-		ModelAndView mv = new ModelAndView("funcionario/detalhes-vaga");
+		ModelAndView mv = new ModelAndView("funcionario/detalhes-ferias");
 		mv.addObject("ferias", ferias);
 
-		Iterable<Candidato> candidatos = cr.findByFerias(ferias);
-		mv.addObject("candidatos", candidatos);
+		Iterable<Funcionario> funcionarios = cr.findByFerias(ferias);
+		mv.addObject("funcionarios", funcionarios);
 
 		return mv;
 
 	}
 
-	// GET que deleta a vaga
+	// GET que deleta as ferias
 	@RequestMapping("/deletarFerias")
 	public String deletarFerias(long codigo) {
 		Ferias ferias = vr.findByCodigo(codigo);
@@ -77,8 +76,8 @@ public class FeriasController {
 		return "redirect:/ferias";
 	}
 
-	// Métodos que atualizam vaga
-	// GET que chama o formulário de edição da vaga
+	// Métodos que atualizam as ferias
+	// GET que chama o formulário de edição das ferias
 	@RequestMapping("/editar-ferias")
 	public ModelAndView editarFerias(long codigo) {
 		Ferias ferias = vr.findByCodigo(codigo);
@@ -87,15 +86,13 @@ public class FeriasController {
 		return mv;
 	}
 
-	// POST do FORM que atualiza a vaga
+	// POST do FORM que atualiza as ferias
 	@RequestMapping(value = "/editar-ferias", method = RequestMethod.POST)
 	public String updateFerias(@Valid Ferias ferias, BindingResult result, RedirectAttributes attributes) {
 		vr.save(ferias);
-		attributes.addFlashAttribute("success", "Vaga alterada com sucesso!");
+		attributes.addFlashAttribute("success", "Férias alteradas com sucesso!");
 
-		long codigoLong = ferias.getCodigo();
-		String codigo = "" + codigoLong;
-		return "redirect:/ferias/" + codigo;
+		return "redirect:/ferias/";
 	}
 
 }
