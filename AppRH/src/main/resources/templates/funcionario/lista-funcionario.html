@@ -83,9 +83,7 @@
                             Benefícios
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/cadastrarBeneficios">Cadastrar Novo Benefício</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/beneficios">Lista de Beneficios</a>
+                            <a class="dropdown-item" href="/beneficios">Cadastrar Novo Benefício</a>
                         </div>
                     </li>
 
@@ -138,6 +136,7 @@
                     <th scope="col">Nome:</th>
                     <th scope="col">Data de nascimento:</th>
                     <th scope="col">E-mail:</th>
+                    <th scope="col">Salário:</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                     <th scope="col"></th>
@@ -150,6 +149,7 @@
                                 th:text="${funcionario.nome}"></span></a></td>
                     <td><span th:text="${funcionario.data}"></span></td>
                     <td><span th:text="${funcionario.email}"></span></td>
+                    <td><span th:text="${funcionario.salario}"></span></td>
                     <td><a th:href="${(#mvc.url('FC#deletarFuncionario').arg(0, funcionario.id)).build()}"
                             class="waves-effect waves-light btn-small"><button type="button"
                                 class="btn btn-danger">Excluir</button></a></td>

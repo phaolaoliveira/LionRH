@@ -83,9 +83,7 @@
                             Benefícios
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/cadastrarBeneficios">Cadastrar Novo Benefício</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/beneficios">Lista de Beneficios</a>
+                            <a class="dropdown-item" href="/beneficios">Cadastrar Novo Benefício</a>
                         </div>
                     </li>
 
@@ -116,7 +114,7 @@
                             <a class="dropdown-item" href="/acessos">Cadastrar Novo Acesso</a>
                         </div>
                     </li>
-                    
+
                 </ul>
 
             </div>
@@ -173,16 +171,23 @@
                 <div class="row">
 
                     <div class="col">
-                    <p></p>
-                        <label for=""><b>Acesso:</b> </label> <input type="text" value="" name="nome" class="form-control"
-                            required />
+                        <p></p>
+                        <label for=""><b>Acesso:</b> </label> <input type="text" value="" name="nome"
+                            class="form-control" required />
                     </div>
 
                 </div>
 
                 <p></p>
-                <button type="submit" class="btn btn-success">Adicionar
-                    Acesso</button>
+                <button type="submit" class="btn btn-success"><i class="bi bi-check2"></i>Adicionar
+                    Acesso
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-check2" viewBox="0 0 16 16">
+                        <path
+                            d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z">
+                        </path>
+                    </svg>
+                </button>
         </form>
 
 
@@ -210,8 +215,8 @@
                 <th scope="row">*</th>
                 <td><span th:text="${acessos.nome}"></span></td>
                 <td><a class="waves-effect waves-light btn-small"
-                        th:href="${(#mvc.url('FC#deletarAcessos').arg(0, acessos.cpf)).build()}"><button
-                            type="button" class="btn btn-danger">Excluir</button></a></td>
+                        th:href="${(#mvc.url('FC#deletarAcessos').arg(0, acessos.cpf)).build()}"><button type="button"
+                            class="btn btn-danger">Excluir</button></a></td>
             </tr>
 
         </tbody>

@@ -2,22 +2,15 @@ package com.AppRH.AppRH.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.AppRH.AppRH.models.Candidato;
-import com.AppRH.AppRH.models.Dependente;
-import com.AppRH.AppRH.models.Funcionario;
-import com.AppRH.AppRH.models.Vaga;
-
+import com.AppRH.AppRH.repository.CandidatoRepository;
+import com.AppRH.AppRH.repository.DependenteRepository;
 import com.AppRH.AppRH.repository.FuncionarioRepository;
 import com.AppRH.AppRH.repository.VagaRepository;
-import com.AppRH.AppRH.repository.DependenteRepository;
-import com.AppRH.AppRH.repository.FeriasRepository;
-import com.AppRH.AppRH.repository.CandidatoRepository;
 
 @Controller
 public class BuscaController {
@@ -33,9 +26,6 @@ public class BuscaController {
 	
 	@Autowired
 	private CandidatoRepository cr;
-	
-	@Autowired
-	private FeriasRepository er;
 	
 	//GET
 	@RequestMapping("/")

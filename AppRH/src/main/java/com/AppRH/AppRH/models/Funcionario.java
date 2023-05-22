@@ -30,6 +30,9 @@ public class Funcionario implements Serializable {
 	@OneToMany(mappedBy = "funcionario", cascade = CascadeType.REMOVE)
 	private List<Dependente>dependentes;
 	
+	@OneToMany(mappedBy = "funcionario", cascade = CascadeType.REMOVE)
+	private List<Beneficios>beneficios;
+	
 	@ManyToOne
 	private Ferias ferias;
 	
@@ -88,6 +91,14 @@ public class Funcionario implements Serializable {
 
 	public void setDependentes(List<Dependente> dependentes) {
 		this.dependentes = dependentes;
+	}
+	
+	public List<Beneficios> getBeneficios() {
+		return beneficios;
+	}
+
+	public void setBeneficios(List<Beneficios> beneficios) {
+		this.beneficios = beneficios;
 	}
 
 	

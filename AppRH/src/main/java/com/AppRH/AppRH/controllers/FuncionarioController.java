@@ -149,7 +149,7 @@ public class FuncionarioController {
 		Funcionario funcionario = fr.findById(id);
 		dependentes.setFuncionario(funcionario);
 		dr.save(dependentes);
-		attributes.addFlashAttribute("mensagem", "Dependente adicionado com sucesso");
+		attributes.addFlashAttribute("mensagem", "Dependente adicionado com sucesso!");
 		return "redirect:/detalhes-funcionario/{id}";
 		
 	}

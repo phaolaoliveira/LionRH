@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.AppRH.AppRH.models.Beneficios;
 import com.AppRH.AppRH.models.Ferias;
 import com.AppRH.AppRH.models.Funcionario;
 
